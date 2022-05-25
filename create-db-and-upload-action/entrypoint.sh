@@ -7,7 +7,7 @@ cp $local_path/*/*/*.tar.zst ./upload_packages/
 
 if [ ! -f ~/.config/rclone/rclone.conf ]; then
     mkdir --parents ~/.config/rclone
-    echo "[ac]" >> ~/.config/rclone/rclone.conf
+    echo "[onedrive]" >> ~/.config/rclone/rclone.conf
     echo "type = onedrive" >> ~/.config/rclone/rclone.conf
 
     echo "client_id=$RCLONE_ONEDRIVE_CLIENT_ID" >> ~/.config/rclone/rclone.conf
