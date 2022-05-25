@@ -27,12 +27,12 @@ jobs:
         path: ./*/*.pkg.tar.zst
         name: ${{ matrix.repos }}
         
-    - uses: ncipollo/release-action@v1
-      with:
-        allowUpdates: true
-        tag: "packages"
-        artifacts: "./*/*.zst"
-        token: ${{ secrets.GITHUB_TOKEN }}
+#    - uses: ncipollo/release-action@v1
+#      with:
+#        allowUpdates: true
+#        tag: "packages"
+#        artifacts: "./*/*.zst"
+#        token: ${{ secrets.GITHUB_TOKEN }}
 
   buildNonAUR:
     strategy:
@@ -58,12 +58,12 @@ jobs:
           path: ./*/*.pkg.tar.zst
           name: ${{ matrix.PKGBUILDs }}
       
-      - uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
-          tag: "packages"
-          artifacts: ${{ steps.makepkg.outputs.pkgfile0 }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+#      - uses: ncipollo/release-action@v1
+#        with:
+#          allowUpdates: true
+#          tag: "packages"
+#          artifacts: ${{ steps.makepkg.outputs.pkgfile0 }}
+#          token: ${{ secrets.GITHUB_TOKEN }}
           
   uploadToOneDrive:      
     runs-on: ubuntu-latest
@@ -84,7 +84,7 @@ jobs:
           RCLONE_ONEDRIVE_TOKEN: ${{ secrets.RCLONE_ONEDRIVE_TOKEN }}
           RCLONE_ONEDRIVE_DRIVE_ID: ${{ secrets.RCLONE_ONEDRIVE_DRIVE_ID }}
           RCLONE_ONEDRIVE_DRIVE_TYPE: personal
-          dest_path: /archrepo
-          repo_name: vifly
-          gpg-privatekey: ${{ secrets.gpg_private_key }}
+          dest_path: /Public/archrepo
+          repo_name: ac
+#          gpg-privatekey: ${{ secrets.gpg_private_key }}
           local_path: ${{ steps.download.outputs.download-path }}
