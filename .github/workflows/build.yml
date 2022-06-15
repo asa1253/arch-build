@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         repos: [clash-for-windows-chinese, joplin-appimage, netease-cloud-music]
-        # [osu-lazer, weechat-notify-send, fpp, redsocks, drill, k6, redis-desktop-manager, git-cola, makedeb, logseq-desktop, f3d, losslesscut-bin, clash-for-windows-chinese]
+# [osu-lazer, weechat-notify-send, fpp, redsocks, drill, k6, redis-desktop-manager, git-cola, makedeb, logseq-desktop, f3d, losslesscut-bin, clash-for-windows-chinese]
 
       fail-fast: false
       
@@ -35,10 +35,10 @@ jobs:
 #        artifacts: "./*/*.zst"
 #        token: ${{ secrets.GITHUB_TOKEN }}
 
-#  buildNonAUR:
-#    strategy:
-#      matrix:
-#        PKGBUILDs: [breeze10, python-octodns]
+  buildNonAUR:
+    strategy:
+      matrix:
+        PKGBUILDs: [breeze10, python-octodns]
 
       fail-fast: false
       
