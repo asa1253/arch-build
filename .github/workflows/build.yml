@@ -10,7 +10,6 @@ jobs:
     strategy:
       matrix:
         repos: [clash-for-windows-chinese, joplin-appimage, netease-cloud-music]
-# [osu-lazer, weechat-notify-send, fpp, redsocks, drill, k6, redis-desktop-manager, git-cola, makedeb, logseq-desktop, f3d, losslesscut-bin, clash-for-windows-chinese]
 
       fail-fast: false
       
@@ -28,47 +27,6 @@ jobs:
         path: ./*/*.pkg.tar.zst
         name: ${{ matrix.repos }}
         
-#    - uses: ncipollo/release-action@v1
-#      with:
-#        allowUpdates: true
-#        tag: "packages"
-#        artifacts: "./*/*.zst"
-<<<<<<< HEAD
-#        token: ${{ secrets.GITHUB_TOKEN }}     
-=======
-#        token: ${{ secrets.GITHUB_TOKEN }}
-
-#  buildNonAUR:
-#    strategy:
-#      matrix:
-#        PKGBUILDs: [breeze10, python-octodns]
-#
-#      fail-fast: false
-#      
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - uses: actions/checkout@v2
-#
-#      - name: Build Non-AUR packages
-#        id: makepkg
-#        uses: ./build-nonaur-action
-#        with:
-#          pkgdir: ${{ matrix.PKGBUILDs }}
-#          aurDeps: true
-#          
-#      - uses: actions/upload-artifact@v2
-#        with:
-#          path: ./*/*.pkg.tar.zst
-#          name: ${{ matrix.PKGBUILDs }}
-      
->>>>>>> 3df96535e3e84a0bbaa34b3c9efe375cae49fb69
-#      - uses: ncipollo/release-action@v1
-#        with:
-#          allowUpdates: true
-#          tag: "packages"
-#          artifacts: ${{ steps.makepkg.outputs.pkgfile0 }}
-#          token: ${{ secrets.GITHUB_TOKEN }}
           
   uploadToOneDrive:      
     runs-on: ubuntu-latest
@@ -89,7 +47,7 @@ jobs:
           RCLONE_ONEDRIVE_TOKEN: ${{ secrets.RCLONE_ONEDRIVE_TOKEN }}
           RCLONE_ONEDRIVE_DRIVE_ID: ${{ secrets.RCLONE_ONEDRIVE_DRIVE_ID }}
           RCLONE_ONEDRIVE_DRIVE_TYPE: personal
-          dest_path: /Public/archrepo
-          repo_name: ac
+          dest_path: /archrepo
+          repo_name: vifly
 #          gpg-privatekey: ${{ secrets.gpg_private_key }}
           local_path: ${{ steps.download.outputs.download-path }}
