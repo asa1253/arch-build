@@ -35,29 +35,29 @@ jobs:
 #        artifacts: "./*/*.zst"
 #        token: ${{ secrets.GITHUB_TOKEN }}
 
-  buildNonAUR:
-    strategy:
-      matrix:
-        PKGBUILDs: [breeze10, python-octodns]
-
-      fail-fast: false
-      
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Build Non-AUR packages
-        id: makepkg
-        uses: ./build-nonaur-action
-        with:
-          pkgdir: ${{ matrix.PKGBUILDs }}
-          aurDeps: true
-          
-      - uses: actions/upload-artifact@v2
-        with:
-          path: ./*/*.pkg.tar.zst
-          name: ${{ matrix.PKGBUILDs }}
+#  buildNonAUR:
+#    strategy:
+#      matrix:
+#        PKGBUILDs: [breeze10, python-octodns]
+#
+#      fail-fast: false
+#      
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Build Non-AUR packages
+#        id: makepkg
+#        uses: ./build-nonaur-action
+#        with:
+#          pkgdir: ${{ matrix.PKGBUILDs }}
+#          aurDeps: true
+#          
+#      - uses: actions/upload-artifact@v2
+#        with:
+#          path: ./*/*.pkg.tar.zst
+#          name: ${{ matrix.PKGBUILDs }}
       
 #      - uses: ncipollo/release-action@v1
 #        with:
