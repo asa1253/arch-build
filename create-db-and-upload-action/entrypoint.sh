@@ -18,9 +18,9 @@ if [ ! -f ~/.config/rclone/rclone.conf ]; then
     echo "drive_id=$RCLONE_ONEDRIVE_DRIVE_ID" >> ~/.config/rclone/rclone.conf
 fi
 
-if [ ! -z "$gpg_key" ]; then
-    echo "$gpg_key" | gpg --import
-fi
+#if [ ! -z "$gpg_key" ]; then
+#    echo "$gpg_key" | gpg --import
+#fi
 
 cd upload_packages || exit 1
 
@@ -33,7 +33,7 @@ if [ ! -z "$gpg_key" ]; then
     packages=( "*.tar.zst" )
     for name in $packages
     do
-        gpg --detach-sig --yes $name
+#        gpg --detach-sig --yes $name
     done
     repo-add --verify --sign "./${repo_name:?}.db.tar.gz" ./*.tar.zst
 fi
