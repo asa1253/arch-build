@@ -47,7 +47,7 @@ jobs:
           RCLONE_ONEDRIVE_TOKEN: ${{ secrets.RCLONE_ONEDRIVE_TOKEN }}
           RCLONE_ONEDRIVE_DRIVE_ID: ${{ secrets.RCLONE_ONEDRIVE_DRIVE_ID }}
           RCLONE_ONEDRIVE_DRIVE_TYPE: personal
-          dest_path: /archrepo
+          dest_path: /Public/archrepo
           repo_name: ac
 #          gpg-privatekey: ${{ secrets.gpg_private_key }}
           local_path: ${{ steps.download.outputs.download-path }}
