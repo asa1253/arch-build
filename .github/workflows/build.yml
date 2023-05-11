@@ -9,7 +9,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [clash-for-windows-chinese, joplin-appimage, netease-cloud-music]
+        repos: [clash-for-windows, joplin-desktop, netease-cloud-music]
 
       fail-fast: false
       
